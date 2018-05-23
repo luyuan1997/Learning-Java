@@ -8,5 +8,6 @@ public class Ostrich extends Bird {
 		Bird bird = new Bird();
 		bird.weight = 1000;
 		bird.fly();
+		bird.eat();
 	}
 }
