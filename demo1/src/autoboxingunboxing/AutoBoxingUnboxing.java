@@ -2,16 +2,17 @@ package autoboxingunboxing;
 
 public class AutoBoxingUnboxing {
 	public static void main(String[] args) {
-		//Ö±½Ó°ÑÒ»¸ö»ù±¾ÀàĞÍ±äÁ¿¸³Öµ¸øInteger¶ÔÏó
+		//ç›´æ¥æŠŠä¸€ä¸ªåŸºæœ¬ç±»å‹å˜é‡èµ‹å€¼ç»™Integerå¯¹è±¡
 		Integer inObj = 5;
-		//Ö±½Ó°ÑÒ»¸öbooleanÀàĞÍ±äÁ¿¸³Öµ¸øÒ»¸öObjectÀàĞÍµÄ±äÁ¿
+		//ç›´æ¥æŠŠä¸€ä¸ªbooleanç±»å‹å˜é‡èµ‹å€¼ç»™ä¸€ä¸ªObjectç±»å‹çš„å˜é‡
 		Object boolObj = true;
-		//Ö±½Ó°ÑÒ»¸öInteger¶ÔÏó¸³Öµ¸øintÀàĞÍµÄ±äÁ¿
+		//ç›´æ¥æŠŠä¸€ä¸ªIntegerå¯¹è±¡èµ‹å€¼ç»™intç±»å‹çš„å˜é‡
 		int it = inObj;
 		if(boolObj instanceof Boolean) {
-			//ÏÈ°ÑObject¶ÔÏóÇ¿ÖÆÀàĞÍ×ª»¯ÎªBooleanÀàĞÍ£¬ÔÙ¸³Öµ¸øboolean
+			//å…ˆæŠŠObjectå¯¹è±¡å¼ºåˆ¶ç±»å‹è½¬åŒ–ä¸ºBooleanç±»å‹ï¼Œå†èµ‹å€¼ç»™boolean
 			boolean b = (Boolean)boolObj;
 			System.out.println(b);
 		}
 	}
 }
+//è‡ªåŠ¨è£…ç®±è‡ªåŠ¨æ‹†ç®±
