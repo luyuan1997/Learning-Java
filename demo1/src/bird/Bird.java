@@ -3,10 +3,11 @@ package bird;
 public class Bird {
 	public double weight;
 	public void fly() {
-		System.out.println("ÎÒÔÚÌì¿Õ×ÔÓĞµØ·ÉĞĞ...");
-		System.out.println("ÎÒÊÇÒ»Ö»Ğ¡ÅÖÄñ£¡ÖØ" + weight + "g!");
+		System.out.println("æˆ‘åœ¨å¤©ç©ºè‡ªæœ‰åœ°é£è¡Œ...");
+		System.out.println("æˆ‘æ˜¯ä¸€åªå°èƒ–é¸Ÿï¼é‡" + weight + "g!");
 	}
 	public void eat() {
-		System.out.println("ÎÒ×îÏ²»¶³Ô¶«Î÷ÁË£¡");
+		System.out.println("æˆ‘æœ€å–œæ¬¢åƒä¸œè¥¿äº†ï¼");
 	}
 }
+//ç»§æ‰¿å…³ç³»
