@@ -7,9 +7,11 @@
 /demo2/
 /demo3/
 /demo4/
+/finalReferenceTest/
 /insanceoftest/
 /multitable/
 /overload/
+/overrideEqualsRight/
 /person/
 /persontest/
 /primitive2string/
@@ -17,10 +19,13 @@
 /recursive/
 /regexMatches/
 /section5_4/
+/shape/
+/singletonTest/
 /staticmodule/
+/stringJoinTest/
 /sub/
 /subclass/
+/tostringtest/
 /varargs/
 /wolf/
 /yangHuiTriangle/
-/tostringtest/
