@@ -1,11 +1,13 @@
 package computerr;
 
 import Lee.Output;
-import printer.Printer;
+import Lee.BetterPrinter;
+//import printer.Printer;
 
 public class OutputFactory {
 	public Output getOutput() {
-		return new Printer();
+		return new BetterPrinter();
+		//return new Printer();
 	}
 	public static void main(String[] args) {
 		OutputFactory of = new OutputFactory();
