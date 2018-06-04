@@ -13,3 +13,4 @@ public class CreateStaticInnerInstance {
 		StaticOut.StaticIn in = new StaticOut.StaticIn();
 	}
 }
+//public class StaticSubClass extends StaticOut.StaticIn{};
