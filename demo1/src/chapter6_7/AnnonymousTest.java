@@ -21,6 +21,7 @@ public class AnnonymousTest {
 //				return "AGPœ‘ø®";
 //			}
 //		}
+//		ta.test(new AnnonymousProduct());
 		ta.test(new Product() {
 			public double getPrice() {
 				return 527.8;
