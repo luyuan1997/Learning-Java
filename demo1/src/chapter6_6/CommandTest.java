@@ -5,8 +5,8 @@ public class CommandTest{
 		ProcessArray pa = new ProcessArray();
 		int[] target = {3, -4, 6, 4};
 		//第一次处理数组
-		pa.process(target, new PrintCommand());
+//		pa.process(target, new PrintCommand());
 		//第二次处理数组
-		pa.process(target, new AddCommand());
+//		pa.process(target, new AddCommand());
 	}
 }
