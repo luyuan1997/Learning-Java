@@ -1,4 +1,5 @@
 package chapter6_8;
+//Lambda±Ì¥Ô Ω
 
 import chapter6_6.ProcessArray;
 
