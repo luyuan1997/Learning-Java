@@ -6,6 +6,9 @@ public class GcTest {
 		// TODO Auto-generated method stub
 		for(int i=0; i<4; i++) {
 			new GcTest();
+			//下面两行代码作用相同，强制系统进行垃圾回收
+//			System.gc();
+			Runtime.getRuntime().gc();
 		}
 	}
 	public void finalize() {
