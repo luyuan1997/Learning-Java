@@ -42,7 +42,14 @@ public class HashSetTest2 {
 		R first = (R)it.next();
 		//为第一个元素的count实例变量赋值
 		first.count = -3;
-		//
+		//再次输出HashSet集合，几何元素有重复元素
+		System.out.println(hs);
+		//删除count为-3的R对象
+		hs.remove(new R(-3));
+		//可以看到被删除了一个R元素
+		System.out.println(hs);
+		System.out.println("hs是否包含count为-3的R对象？"+hs.contains(new R(-3)));
+		System.out.println("hs是否包含count为-2的R对象？"+hs.contains(new R(-2)));
 	}
 
 }
