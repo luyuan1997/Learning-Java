@@ -1,8 +1,7 @@
 package chapter8.chapter8_3;
 
 import java.util.HashSet;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
+import java.util.Iterator;
 
 class R{
 	int count;
