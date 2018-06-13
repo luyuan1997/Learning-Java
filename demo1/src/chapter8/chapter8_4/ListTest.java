@@ -23,9 +23,9 @@ public class ListTest {
 		books.remove(2);
 		System.out.println(books);
 		//判断置顶元素在集合中的位置
-		System.out.println(books.indexOf(new String("疯狂java讲义")));
+		System.out.println(books.indexOf(new String("疯狂AJAX讲义")));
 		//替换第二个元素
-		books.set(1, new String("疯狂JAVA讲义"));
+		books.set(1, new String("疯狂java讲义"));
 		System.out.println(books);
 		//截取大于等于第二个元素到小于等于第三个元素的子集
 		System.out.println(books.subList(1,2));
