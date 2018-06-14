@@ -1,9 +1,10 @@
 package chapter8.chapter8_8;
 
 import java.util.List;
+import java.util.Collections;
 import java.util.LinkedList;
 
-public class ShowHand{
+public class ShowHand {
 	//定义游戏最多支持多少玩家
 	private final int PLAY_NUM = 5;
 	//定义扑克牌的所有花色和数值
@@ -21,16 +22,110 @@ public class ShowHand{
 	 */
 	public void initCards() {
 		for(int i=0; i<types.length; i++) {
-			for
+			for(int j=0; j<values.length; j++) {
+				cards.add(types[i]+values[j]);
+			}
+		}
+		//随机排列
+		Collections.shuffle(cards);
+	}
+	/**
+	 * 初始化玩家，为每个玩家分派用户名
+	 */
+	public void initPlayer(String... names) {
+		if(names.length > PLAY_NUM || names.length < 2) {
+			//检验玩家数量，此处使用异常机制更合理
+			System.out.println("玩家数量不对");
+			return;
+		}
+		else {
+			//初始化玩家用户名
+			for(int i=0; i<names.length; i++) {
+				players[i] =names[i];
+			}
 		}
 	}
-}
-
-public class ShowHand {
-
+	/**
+	 * 初始化玩家手上的扑克牌，开始游戏时每个玩家手上的扑克牌为空
+	 * 程序使用一个长度为0的LinkedList来表示
+	 */
+	public void initPlayerCards() {
+		for(int i=0; i<players.length; i++) {
+			if(players[i] != null && !players[i].equals("")) {
+				playersCards[i] = new LinkedList<String>();
+			}
+		}
+	}
+	/**
+	 * 输出全部扑克牌，该方法没有实际作用，仅用作测试
+	 */
+	public void showAllCards() {
+		for(String card : cards) {
+			System.out.println(card);
+		}
+	}
+	/**
+	 * 派发扑克牌
+	 * @param first最先派给谁
+	 */
+	public void deliverCard(String first) {
+		//调用ArrayList工具类的search方法
+		//查询出指定元素在数组中的索引
+		int firstPos = ArrayUtils.search(players, first);
+		//依次给位于该指定玩家之后的每个玩家派发扑克牌
+		for(int i=firstPos; i<PLAY_NUM; i++) {
+			if(players[i] != null) {
+				playersCards[i].add(cards.get(0));
+				cards.remove(0);
+			}
+		}
+		//依次给位于该指定玩家之前的每个玩家派发扑克牌
+		for(int i=0; i<firstPos; i++) {
+			if(players[i] != null) {
+				playersCards[i].add(cards.get(0));
+				cards.remove(0);
+			}
+		}
+	}
+	/**
+	 * 输出玩家手上的扑克牌
+	 * 实现该方法时，应该控制每个玩家看不到别人的第一张牌，但此处没有增加该功能
+	 */
+	public void showPlayerCards() {
+		for(int i=0; i<PLAY_NUM; i++) {
+			//当玩家数量不为0
+			if(players[i] != null) {
+				//输出玩家
+				System.out.println(players[i]+": ");
+				//遍历输出玩家手上的扑克牌
+				for(String card : playersCards[i]) {
+					System.out.println(card+"\t");
+				}
+			}
+			System.out.println("\n");
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		ShowHand sh = new ShowHand();
+		sh.initPlayer("电脑玩家", "孙悟空");
+		sh.initCards();
+		sh.initPlayerCards();
+		//下面测试所有扑克牌
+		sh.showAllCards();
+		System.out.println("----------------");
+		//下面从"孙悟空"开始派牌
+		sh.deliverCard("孙悟空");
+		sh.showPlayerCards();
+		/**
+		 * 增加功能：
+		 * 1.牌面最大的玩家下注
+		 * 2.其他玩家是否跟注
+		 * 3.游戏是否只剩下一个玩家？如果是，则胜利
+		 * 4.如果已经时最后一张扑克牌，则需要比较剩下玩家的牌面大小
+		 */
+		//再次从“电脑玩家”开始派牌
+		sh.deliverCard("电脑玩家");
+		sh.showPlayerCards();
 	}
-
 }
