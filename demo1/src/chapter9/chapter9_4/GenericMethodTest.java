@@ -1,5 +1,6 @@
 package chapter9.chapter9_4;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class GenericMethodTest {
@@ -11,7 +12,14 @@ public class GenericMethodTest {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Object[] oa = new Object[100];
+		Collection<Object> co = new ArrayList<>();
+		//下面代码中T代表Object类型
+		fromArrayToCollection(oa, co);
+		String[] sa = new String[100];
+		Collection<String> cs = new ArrayList<>();
+		//下面代码中的T代表了String类型
+		fromArrayToCollection(sa, cs);
 	}
 
 }
