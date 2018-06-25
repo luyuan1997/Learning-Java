@@ -21,5 +21,5 @@ public class InferenceTest {
 		MyUtil.cons(42, MyUtil.nil());
 		MyUtil.cons(42, MyUtil.<Integer>nil());
 	}
-
+ 
 }
