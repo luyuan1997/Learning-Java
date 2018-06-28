@@ -15,5 +15,4 @@ public class Throw2 {
 			throw ex;
 		}
 	}
-
 }
