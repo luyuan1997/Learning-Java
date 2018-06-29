@@ -53,7 +53,7 @@ public class PopupMenuTest {
 		p.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				if(e.isPopupTrigger()) {
-					pop.show(p, e.getX(), e.getY());
+//					pop.show(p, e.getX(), e.getY());
 				}
 			}
 		});
