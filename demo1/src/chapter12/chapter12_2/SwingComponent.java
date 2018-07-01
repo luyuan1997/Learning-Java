@@ -1,5 +1,7 @@
 package chapter12.chapter12_2;
 
+import java.awt.BorderLayout;
+
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -12,8 +14,10 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -48,5 +52,27 @@ public class SwingComponent {
 	JMenu format = new JMenu("格式");
 	JMenuItem commentItem = new JMenuItem("注释");
 	JMenuItem cancelItem = new JMenuItem("取消注释");
+	//定义一个右键菜单用于设置程序风格
 	JPopupMenu pop = new JPopupMenu();
+	ButtonGroup flavorGroup = new ButtonGroup();
+	JRadioButtonMenuItem metalItem = new JRadioButtonMenuItem("Metal风格", true);
+	JRadioButtonMenuItem nimbusItem = new JRadioButtonMenuItem("Nimbus风格");
+	JRadioButtonMenuItem windowsItem = new JRadioButtonMenuItem("Windows风格");
+	JRadioButtonMenuItem classicItem = new JRadioButtonMenuItem("Windows经典风格");
+	JRadioButtonMenuItem motifItem = new JRadioButtonMenuItem("Motif风格");
+	public void init() {
+		//创建装载了文本框和按钮的JPanel
+		JPanel bottom = new JPanel();
+		bottom.add(name);
+		bottom.add(ok);
+		f.add(bottom, BorderLayout.SOUTH);
+		//创建装载了下拉选择框和三个JCheckBox的JPanel
+		JPanel checkPanel = new JPanel();
+		checkPanel.add(colorChooser);
+		bg.add(male);
+		bg.add(female);
+		checkPanel.add(male);
+		checkPanel.add(female);
+		
+	}
 }
