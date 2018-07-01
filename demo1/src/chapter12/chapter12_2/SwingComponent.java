@@ -96,6 +96,14 @@ public class SwingComponent {
 		edit.addSeparator();
 		edit.add(copyItem);
 		edit.add(pasteItem);
+		commentItem.setToolTipText("将程序代码注释起来！");
+		format.add(commentItem);
+		format.add(cancelItem);
+		edit.add(new JMenuItem("-"));
+		edit.add(format);
+		mb.add(file);
+		mb.add(edit);
+		f.setJMenuBar(mb);
 		
 	}
 }
