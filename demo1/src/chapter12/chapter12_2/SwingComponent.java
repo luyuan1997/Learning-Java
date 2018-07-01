@@ -1,6 +1,7 @@
 package chapter12.chapter12_2;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 
 import javax.swing.Box;
@@ -24,6 +25,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 public class SwingComponent {
 	JFrame f = new JFrame("测试");
@@ -104,6 +107,74 @@ public class SwingComponent {
 		mb.add(file);
 		mb.add(edit);
 		f.setJMenuBar(mb);
+		flavorGroup.add(metalItem);
+		flavorGroup.add(nimbusItem);
+		flavorGroup.add(windowsItem);
+		flavorGroup.add(classicItem);
+		flavorGroup.add(motifItem);
+		pop.add(metalItem);
+		pop.add(nimbusItem);
+		pop.add(windowsItem);
+		pop.add(classicItem);
+		pop.add(motifItem);
+		ActionListener flavorListener = e -> {
+			try {
+				switch(e.getActionCommand()) {
+				case "Metal风格":
+					changeFlavor(1);
+					break;
+				case "Nimbus风格":
+					changeFlavor(2);
+					break;
+				case "Windows风格":
+					changeFlavor(3);
+					break;
+				case "Windows经典风格":
+					changeFlavor(4);
+					break;
+				case "Motif风格":
+					changeFlavor(5);
+					break;
+				}
+			}
+			catch(Exception ee){
+				ee.printStackTrace();
+			}
+		};
+		metalItem.addActionListener(flavorListener);
+		nimbusItem.addActionListener(flavorListener);
+		windowsItem.addActionListener(flavorListener);
+		classicItem.addActionListener(flavorListener);
+		motifItem.addActionListener(flavorListener);
+		ta.setComponentPopupMenu(pop);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.pack();
+		f.setVisible(true);
 		
+	}
+	private void changeFlavor(int flavor) throws Exception{
+		switch(flavor) {
+		case 1:
+			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+			break;
+		case 2:
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+			break;
+		case 3:
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			break;
+		case 4:
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
+			break;
+		case 5:
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+			break;
+		}
+		SwingUtilities.updateComponentTreeUI(f.getContentPane());
+		SwingUtilities.updateComponentTreeUI(mb);
+		SwingUtilities.updateComponentTreeUI(pop);
+	}
+	public static void main(String[] args) {
+		new SwingComponent().init();
 	}
 }
