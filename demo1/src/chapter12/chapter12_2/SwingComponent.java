@@ -1,7 +1,9 @@
 package chapter12.chapter12_2;
 
 import java.awt.BorderLayout;
+import java.awt.event.InputEvent;
 
+import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -18,8 +20,10 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 public class SwingComponent {
 	JFrame f = new JFrame("测试");
@@ -73,6 +77,25 @@ public class SwingComponent {
 		bg.add(female);
 		checkPanel.add(male);
 		checkPanel.add(female);
+		checkPanel.add(married);
+		//创建一个垂直排列组件的Box，盛装多行文本域JPanel
+		Box topLeft = Box.createVerticalBox();
+		JScrollPane taJsp = new JScrollPane(ta);
+		topLeft.add(taJsp);
+		topLeft.add(checkPanel);
+		Box top = Box.createHorizontalBox();
+		top.add(topLeft);
+		top.add(colorList);
+		f.add(top);
+		newItem.setAccelerator(KeyStroke.getKeyStroke('N', InputEvent.CTRL_MASK));
+		newItem.addActionListener(e -> ta.append("用户单击了“新建”菜单\n"));
+		file.add(newItem);
+		file.add(saveItem);
+		file.add(exitItem);
+		edit.add(autoWrap);
+		edit.addSeparator();
+		edit.add(copyItem);
+		edit.add(pasteItem);
 		
 	}
 }
