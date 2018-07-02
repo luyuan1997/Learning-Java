@@ -10,7 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileView;
 
@@ -51,6 +53,13 @@ public class ImageViewer {
 				}
 				accessory.setIcon(icon);
 			}
+		});
+		JMenu menu = new JMenu("文件");
+		menuBar.add(menu);
+		JMenuItem openItem = new JMenuItem("打开");
+		menu.add(openItem);
+		openItem.addActionListener(event -> {
+			
 		});
 	}
 }
