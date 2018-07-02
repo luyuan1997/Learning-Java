@@ -54,7 +54,7 @@ public class SwingComponent {
 	Icon exitIcon = new ImageIcon("icon/exit.png");
 	JMenuItem exitItem = new JMenuItem("退出", exitIcon);
 	JCheckBoxMenuItem autoWrap = new JCheckBoxMenuItem("自动换行");
-	JMenuItem copyItem = new JMenuItem("粘贴", new ImageIcon("ico/copy.png"));
+	JMenuItem copyItem = new JMenuItem("复制", new ImageIcon("ico/copy.png"));
 	JMenuItem pasteItem = new JMenuItem("粘贴", new ImageIcon("ico/paste.png"));
 	JMenu format = new JMenu("格式");
 	JMenuItem commentItem = new JMenuItem("注释");
