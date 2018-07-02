@@ -1,5 +1,7 @@
 package chapter12.chapter12_2;
 
+import java.awt.BorderLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -9,9 +11,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
@@ -53,6 +57,27 @@ public class JToolBarTest {
 	public void init() {
 		pasteAction.setEnabled(false);
 		jf.add(new JScrollPane(jta));
+		JButton copyBn = new JButton(copyAction);
+		JButton pasteBn = new JButton(pasteAction);
+		JPanel jp = new JPanel();
+		jp.add(copyBn);
+		jp.add(pasteBn);
+		jf.add(jp, BorderLayout.SOUTH);
+		jtb.add(copyAction);
+		jtb.addSeparator();
+		jtb.add(pasteAction);
+		edit.add(copyAction);
+		edit.add(pasteAction);
+		jmb.add(edit);
+		jf.setJMenuBar(jmb);
+		jtb.setMargin(new Insets(20,10,5,30));
+		jf.add(jtb, BorderLayout.NORTH);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.pack();
+		jf.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new JToolBarTest().init();
 	}
 	
 }
