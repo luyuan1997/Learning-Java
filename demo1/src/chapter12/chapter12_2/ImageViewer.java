@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileView;
 
@@ -59,8 +61,22 @@ public class ImageViewer {
 		JMenuItem openItem = new JMenuItem("打开");
 		menu.add(openItem);
 		openItem.addActionListener(event -> {
-			
+			int result =chooser.showDialog(jf, "打开图片文件");
+			if(result == JFileChooser.APPROVE_OPTION) {
+				String name = chooser.getSelectedFile().getPath();
+				label.setIcon(new ImageIcon(name));
+			}
 		});
+		JMenuItem exitItem = new JMenuItem("Exit");
+		menu.add(exitItem);
+		exitItem.addActionListener(event -> System.exit(0));
+		jf.setJMenuBar(menuBar);
+		jf.add(new JScrollPane(label));
+		jf.pack();
+		jf.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new ImageViewer().init();
 	}
 }
 
@@ -79,11 +95,38 @@ class ExtensionFileFilter extends FileFilter{
 	public String getDescription() {
 		return description;
 	}
+	public boolean accept(File f){
+		if(f.isDirectory()) return true;
+		String name = f.getName().toLowerCase();
+		for(String extension : extensions) {
+			if(name.endsWith(extension)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
 class FileIconView extends FileView{
 	private FileFilter filter;
 	public FileIconView(FileFilter filter) {
 		this.filter = filter;
+	}
+	public Icon getIcon(File f) {
+		if(!f.isDirectory() && filter.accept(f)) {
+			return new ImageIcon("ico/pict.png");
+		}
+		else if(f.isDirectory()) {
+			File[] fList = File.listRoots();
+			for(File tmp : fList) {
+				if(tmp.equals(f)) {
+					return new ImageIcon("ico/dsk.png");
+				}
+			}
+			return new ImageIcon("ico/folder.png");
+		}
+		else {
+			return null;
+		}
 	}
 }
