@@ -1,8 +1,9 @@
-package chapter9.chapter9_1;
+package chapter9.chapter9_2;
 
-class MyThread2 extends Thread{
+
+class MyThread extends Thread{
 	private String name;
-	public MyThread2(String name) {
+	public MyThread(String name) {
 		this.name = name;
 	}
 	public void run() {
@@ -12,13 +13,12 @@ class MyThread2 extends Thread{
 	}
 };
 
-public class ThreadDemo2 {
+public class ThreadDemo3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		MyThread2 mt1= new MyThread2("线程A");
-		MyThread2 mt2 = new MyThread2("线程B");
+		MyThread mt1 = new MyThread("线程A");
 		mt1.start();
-		mt2.start();
+		mt1.start();
 	}
 }
