@@ -12,6 +12,7 @@ class Demo3<T>{
 
 public class SuppressWarningsAnnotation {
 	@SuppressWarnings({"unchecked", "deprecation"})
+//	@SuppressWarnings(value={"unchecked", "deprecation"})
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Demo3 d = new Demo3();
