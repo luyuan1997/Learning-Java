@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionDemo2 {
-	public static final String DBDRIVER = "org.git.mm.mysql.Driver";
+	public static final String DBDRIVER = "com.mysql.jdbc.driver";
 	public static final String DBURL = "jbdc:mysql://localhost:3306/mldn";
 	public static final String DBUSER = "root";
 	public static final String DBPASS = "lu910208";
