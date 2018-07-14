@@ -2,6 +2,7 @@ package com.imooc.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class ListTest {
@@ -40,6 +41,14 @@ public class ListTest {
 		int size = coursesToSelect.size();
 		for(int i=0; i<size; i++) {
 			Course cr =(Course)coursesToSelect.get(i);
+			System.out.println("¿Î³Ì£º"+cr.id+":"+cr.name);
+		}
+	}
+	
+	public void testIterator() {
+		Iterator it = coursesToSelect.iterator();
+		while(it.hasNext()) {
+			Course cr = (Course)it.next();
 			System.out.println("¿Î³Ì£º"+cr.id+":"+cr.name);
 		}
 	}
