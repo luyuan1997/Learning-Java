@@ -2,9 +2,13 @@ package com.imooc.collection;
 
 public class Course {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public String id;
+	
+	public String name;
+	
+	public Course(String id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 }
