@@ -44,7 +44,7 @@ public class ListTest {
 			System.out.println("课程："+cr.id+":"+cr.name);
 		}
 	}
-	
+	//迭代器方法,不可用于存储
 	public void testIterator() {
 		Iterator it = coursesToSelect.iterator();
 		while(it.hasNext()) {
@@ -53,9 +53,18 @@ public class ListTest {
 		}
 	}
 	
+	public void testForEach() {
+		for(Object obj : coursesToSelect) {
+			Course cr = (Course)obj;
+			System.out.println("课程："+cr.id+":"+cr.name);
+		}
+	}
+	
 	public static void main(String[] args) {
 		ListTest lt = new ListTest();
 		lt.testAdd();
 		lt.testGet();
+		lt.testIterator();
+		lt.testForEach();
 	}
 }
