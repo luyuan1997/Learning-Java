@@ -23,12 +23,28 @@ public class TestGeneric {
 			System.out.println(cr.id+":"+cr.name);
 		}
 	}
+	
+	public void testChild() {
+		ChildCourse ccr = new ChildCourse();
+		ccr.id = "3";
+		ccr.name = "我是子类型";
+		courses.add(ccr);
+	}
+	
+	public void testBasicType() {
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		System.out.println(list.get(0));
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TestGeneric tg = new TestGeneric();
 		tg.testAdd();
 		tg.testForEach();
+		tg.testChild();
+		tg.testForEach();
+		tg.testBasicType();
 	}
 
 }
