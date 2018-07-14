@@ -33,12 +33,20 @@ public class ListTest {
 		Course temp5 = (Course)coursesToSelect.get(2);
 		Course temp6 = (Course)coursesToSelect.get(3);
 		System.out.println("添加了两门课程:"+temp5.id+":"+temp5.name+";"
-				+temp6.id+":"+temp6.name);
-		
+				+temp6.id+":"+temp6.name);	
+	}
+	
+	public void testGet() {
+		int size = coursesToSelect.size();
+		for(int i=0; i<size; i++) {
+			Course cr =(Course)coursesToSelect.get(i);
+			System.out.println("课程："+cr.id+":"+cr.name);
+		}
 	}
 	
 	public static void main(String[] args) {
 		ListTest lt = new ListTest();
 		lt.testAdd();
+		lt.testGet();
 	}
 }
