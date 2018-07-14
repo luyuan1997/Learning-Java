@@ -60,11 +60,31 @@ public class ListTest {
 		}
 	}
 	
+	public void testModify() {
+		coursesToSelect.set(4, new Course("7", "Ã©¸ß"));
+	}
+	
+	public void testRemove() {
+		Course cr = (Course)coursesToSelect.get(4);
+		coursesToSelect.remove(cr);
+		testForEach();
+	}
+	
+	public void testRemoveAll() {
+		Course[] courses = {(Course)coursesToSelect.get(3), (Course)coursesToSelect.get(4)};
+		coursesToSelect.removeAll(Arrays.asList(courses));
+		testForEach();
+	}
+	
 	public static void main(String[] args) {
 		ListTest lt = new ListTest();
 		lt.testAdd();
 		lt.testGet();
 		lt.testIterator();
 		lt.testForEach();
+		lt.testModify();
+		lt.testForEach();
+		lt.testRemove();
+		lt.testRemoveAll();
 	}
 }
