@@ -58,7 +58,19 @@ public class SetTest {
 		for(int i=0; i<3; i++) {
 			System.out.println("请输入课程ID");
 			String courseID = console.next();
-			for
+			for(Course cr:st.coursesToSelect) {
+				if(cr.id.equals(courseID)) {
+					student.courses.add(cr);
+				}
+			}
+		}
+		
+		st.testForEachForSet(student);
+	}
+	
+	public void testForEachForSet(Student student) {
+		for(Course cr : student.courses) {
+			System.out.println("选择了课程:"+cr.id+":"+cr.name);
 		}
 	}
 
