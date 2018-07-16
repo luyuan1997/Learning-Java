@@ -65,6 +65,27 @@ public class MapTest {
 		}
 	}
 	
+	//更改Map中学生的姓名
+	public void testModify() {
+		System.out.println("请输入要修改的学生ID");
+		Scanner console = new Scanner(System.in);
+		while(true) {
+			String stuID = console.next();
+			Student student = students.get(stuID);
+			if(student == null) {
+				System.out.println("该ID不存在！请重新输入!");
+				continue;
+			}
+			System.out.println("当前学生ID对应的学生为："+student.name);
+			System.out.println("请输入新的学生姓名");
+			String name = console.next();
+			Student newStudent = new Student(stuID, name);
+			students.put(stuID, newStudent);
+			System.out.println("修改成功！");
+			break;
+		}
+	}
+	
 	//遍历所有键值对
 	public void testEntrySet() {
 		Set<Entry<String, Student>> entrySet = students.entrySet();
@@ -79,7 +100,9 @@ public class MapTest {
 		MapTest mt = new MapTest();
 		mt.testPut();
 		mt.testKeySet();
-		mt.testRemove();
+//		mt.testRemove();
+//		mt.testEntrySet();
+		mt.testPut();
 		mt.testEntrySet();
 		
 	}
