@@ -54,6 +54,12 @@ public class SetTest {
 		System.out.println("欢迎学生："+student.name+"选课！");
 		//创建一个Scanner对象。用来接收从键盘输入的课程
 		Scanner console = new Scanner(System.in);
+		
+		for(int i=0; i<3; i++) {
+			System.out.println("请输入课程ID");
+			String courseID = console.next();
+			for
+		}
 	}
 
 }
