@@ -3,7 +3,7 @@ package interfaces;
 import org.junit.*;
 import org.junit.runner.RunWith;
 
-@RunWith(BlockJUnit4ClassRunner.class)
+//@RunWith(BlockJUnit4ClassRunner.class)
 
 public class TestOneInterface extends UnitTestBase{
 	public TestOneInterface() {
