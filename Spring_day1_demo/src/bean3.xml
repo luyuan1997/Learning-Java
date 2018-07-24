@@ -5,4 +5,23 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
 
+
+	<!-- 配置对象 -->
+	<bean id="book" class="cn.itcast.aop.Book"></bean>
+	<bean id="myBook" class="cn.itcast.aop.MyBook"></bean>
+	
+	<!-- 配置aop操作 -->
+	<aop:config>
+		<!-- 配置切入点 -->
+		<aop:pointcut expression="execution(* cn.itcast.aop.Book.add(..))" id="pointcut1"/>
+		
+		<!-- 配置切面,ref代表要配置的方法所在的类 -->
+		<aop:aspect ref="myBook">
+			<!-- 配置增强类型
+			method，增强类里面使用哪个方法作为前置,pointcut-ref代表的是aop:pointcut里面的id值 -->
+			<aop:before method="before1" pointcut-ref="pointcut1"/>
+			<aop:after-returning method="after1" pointcut-ref="pointcut1"/>
+			<aop:around method="around1" pointcut-ref="pointcut1"/>
+		</aop:aspect>
+	</aop:config>
 </beans>
