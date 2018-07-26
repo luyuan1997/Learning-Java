@@ -5,9 +5,12 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
 
-	<!-- 开启aop操作 -->
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-	<!-- 配置对象 -->
-	<bean id="book" class="cn.itcast.aop.Book"></bean>
-	<bean id="myBook" class="cn.itcast.aop.MyBook"></bean>
+	<!-- 配置c3p0连接池 -->
+	<bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jbdc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql:///spring_day3"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="lu910208"></property>
+	</bean>
+	
 </beans>
