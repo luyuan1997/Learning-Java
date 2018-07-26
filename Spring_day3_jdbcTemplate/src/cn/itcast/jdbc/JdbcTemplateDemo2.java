@@ -5,15 +5,45 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 
 
 public class JdbcTemplateDemo2 {
+	
+	//查询List
+			@Test
+			public void testList() {
+				
+				//c3p0连接池的写法
+//				ComboPooledDataSource dataSource = new ComboPooledDataSource();
+//				dataSource.setDriverClass("com.mysql.jbdc.Driver");
+//				dataSource.setJdbcUrl("jdbc:mysql:///spring_day3");
+//				dataSource.setUser("root");
+//				dataSource.setPassword("lu910208");
+				//设置数据库信息
+				DriverManagerDataSource dataSource = new DriverManagerDataSource();
+			//	dataSource.setDriverClassName("com.mysql.jbdc.Driver");
+				dataSource.setUrl("jdbc:mysql:///spring_day3");
+				dataSource.setUsername("root");
+				dataSource.setPassword("lu910208");
+						
+				//创建jdbcTemplate对象，设置数据源
+				JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+				//调用方法查询记录数
+				String sql = "select * from user";
+				//第二个参数需要自己写实现接口，自己做数据封装
+				List<User> list = jdbcTemplate.query(sql, new MyRowMapper());
+				System.out.println(list);
+				
+			}
 	
 	
 	//查询返回对象
