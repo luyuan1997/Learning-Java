@@ -13,4 +13,20 @@
 		<property name="password" value="lu910208"></property>
 	</bean>
 	
+	
+	<!-- 创建service和dao对象，在service对象里面注入dao对象 -->
+	<bean id="userService" class="cn.itcast.c3p0.UserService">
+		<!-- 注入dao对象 -->
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="userDao" class="cn.itcast.c3p0.UserDao">
+		<!-- 注入jdbcTemplate对象 -->
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
+	<!-- 创建JdbcTemplate对象 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate;">
+		<!-- 把dataSource传递到模板里面 -->
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 </beans>
