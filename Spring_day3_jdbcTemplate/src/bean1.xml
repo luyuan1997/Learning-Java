@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
 
 	<!-- 配置c3p0连接池 -->
-	<bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jbdc.Driver"></property>
 		<property name="jdbcUrl" value="jdbc:mysql:///spring_day3"></property>
 		<property name="user" value="root"></property>

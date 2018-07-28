@@ -9,4 +9,10 @@ public class OrdersService {
 	public void setOrdersDao(OrdersDao ordersDao) {
 		this.ordersDao = ordersDao;
 	}
+	
+	public void accountMoney() {
+		ordersDao.lessMoney();
+		
+		ordersDao.moreMoney();
+	}
 }
