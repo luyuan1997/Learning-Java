@@ -23,6 +23,11 @@
 		<property name="password" value="lu910208"></property>
 	</bean>
 	
+	<!-- 第一步创建事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
 	<bean id="ordersService" class="cn.itcast.service.OrdersService">
 		<property name="ordersDao" ref="ordersDao"></property>
 	</bean>
