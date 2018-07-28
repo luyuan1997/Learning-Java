@@ -35,15 +35,15 @@
   	<!-- 依赖的数据库驱动类库 -->
   	<dependency>
   		<groupId>mysql</groupId>
-  		<artifactId>mysql-conneator-java</artifactId>
-  		<version>${mysql.version}</version>
+  		<artifactId>mysql-connector-java</artifactId>
+  		<version>5.1.46</version>
   	</dependency>
   	
   	<!-- 依赖的连接池类库 -->
   	<dependency>
   		<groupId>commons-dbcp</groupId>
   		<artifactId>commons-dbcp</artifactId>
-  		<version>${commons-dbcp.version}</version>
+  		<version>1.4</version>
   	</dependency>  	
   	
     <dependency>
