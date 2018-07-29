@@ -22,5 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/lu/Documents/GitHub/Learning-Java/Spring_day02_demo/WebContent/WEB-INF/lib/aspectjweaver-1.8.7.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
