@@ -1,4 +1,4 @@
-package com.smart.chapter2.dao;
+package springmvcMaven.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
-import com.smart.domain.User;
+import springmvcMaven.domain.User;
 
 @Repository
 public class UserDao {
