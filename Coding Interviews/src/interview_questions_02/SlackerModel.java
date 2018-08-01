@@ -11,4 +11,5 @@ public class SlackerModel {
 		}
 		return instance;
 	}
+	
 }

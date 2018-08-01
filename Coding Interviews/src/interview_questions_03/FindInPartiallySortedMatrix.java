@@ -8,11 +8,10 @@ public class FindInPartiallySortedMatrix {
 		System.out.println(isIn(arr,7));
 	}
 
-	private static boolean isIn(int[][] a, int num) {
-		// TODO Auto-generated method stub
-		if(a!=null) {
+	public static boolean isIn(int[][] a, int num) {
+		if(a != null) {
 			int m = a.length;
-			int n = a[0].length;
+			int n= a[0].length;
 			int i=0;
 			while(i<m && n>0) {
 				if(a[i][n-1] == num) {
@@ -25,6 +24,7 @@ public class FindInPartiallySortedMatrix {
 			}
 		}
 		return false;
+		
 	}
 
 }
