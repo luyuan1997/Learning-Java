@@ -27,3 +27,4 @@ public class GetIndex {
 		System.out.println(GetIndex.getIndex(array, 7));
 	}
 }
+
