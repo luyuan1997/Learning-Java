@@ -11,6 +11,9 @@ public class GirlController {
     @Autowired
     private GirlRepository girlRepository;
 
+    @Autowired
+    private GirlService girlService;
+
     @GetMapping(value="/girls")
     //用于获取女孩子的列表
     public List<Girl> girlList(){
@@ -59,5 +62,11 @@ public class GirlController {
     @GetMapping(value="/girls/age/{age}")
     public List<Girl> girlListByAge(@PathVariable("age") Integer age){
         return girlRepository.findByAge(age);
+    }
+
+    //通过事务管理实现要么同时插入两个数据，要么一个数据都不能插入
+    @PostMapping(value="/girls/two")
+    public void girlTwo(){
+        girlService.insertTwo();
     }
 }
