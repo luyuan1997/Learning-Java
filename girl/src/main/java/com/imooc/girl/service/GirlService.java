@@ -1,13 +1,17 @@
-package com.imooc.girl;
+package com.imooc.girl.service;
 
+import com.imooc.girl.repository.GirlRepository;
+import com.imooc.girl.domain.Girl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class GirlService {
     @Autowired
     private GirlRepository girlRepository;
 
+    @Transactional
     public void insertTwo(){
         Girl girlA = new Girl();
         girlA.setCupSize("A");

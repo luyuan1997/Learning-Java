@@ -1,8 +1,13 @@
-package com.imooc.girl;
+package com.imooc.girl.controller;
 
+import com.imooc.girl.domain.Girl;
+import com.imooc.girl.repository.GirlRepository;
+import com.imooc.girl.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,14 +28,27 @@ public class GirlController {
     /**
      * 对列表内容进行增添
      */
-    public Girl girlAdd(@RequestParam("cupSize") String cupSize,
-                        @RequestParam("age") Integer age){
-        Girl girl = new Girl();
-        girl.setCupSize(cupSize);
-        girl.setAge(age);
-        //对上述操作进行保存
+    //当参数过多的时候，就需要将@RequestParam("cupSize") String cupSize,
+    ////                        @RequestParam("age") Integer age等全部删除，换成Girl girl，在Girl程序中对参数进行设置
+//    public Girl girlAdd(@RequestParam("cupSize") String cupSize,
+//                        @RequestParam("age") Integer age){
+//        Girl girl = new Girl();
+//        girl.setCupSize(cupSize);
+//        girl.setAge(age);
+//        //对上述操作进行保存
+//        return girlRepository.save(girl);
+//    }
+    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult){
+        //其中@Valid是为了表示有限制值，BindingResult显示是否满足范围，如果不满足，那么就显示出问题原因，并且返回null
+        if (bindingResult.hasErrors()){
+            System.out.print(bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
+        girl.setCupSize(girl.getCupSize());
+        girl.setAge(girl.getAge());
         return girlRepository.save(girl);
     }
+
 
     //查询对象
     @GetMapping(value = "/girls/{id}")
