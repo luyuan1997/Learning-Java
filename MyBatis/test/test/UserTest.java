@@ -62,4 +62,29 @@ public class UserTest {
 		
 		System.out.println("==="+user.getId());
 	}
+	
+	@Test
+	public void testDelUserById() throws Exception{
+		String resource = "SqlMapConfig.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+		SqlSession openSession = factory.openSession();
+		openSession.delete("test.delUserById", 6);
+		openSession.commit();
+	}
+	
+	
+	@Test
+	public void testUpdateUserById() throws Exception{
+		String resource = "SqlMapConfig.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+		SqlSession openSession = factory.openSession();
+		
+		User user = new User();
+		user.setId(6);
+		user.setUsername("lu");
+		openSession.update("test.updateUserById", user);
+		openSession.commit();
+	}
 }
