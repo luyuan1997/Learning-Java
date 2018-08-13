@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，做sql隔离 -->
+<mapper namespace="test">
+	<!-- 
+	id:sql语句唯一标识
+	parameterType:自定传入参数类型
+	resultType:返回结果集类型
+	#{}占位符：起到占位作用，如果传入基本类型(String, long, int, boolean, float等），那么#{}重的变量名可以随意写
+	 -->
+	 <select id="findUserById" parameterType="java.lang.Integer" resultType="pojo.User">
+	 	select * from user where id=#{id}
+	 </select>
+	 
+	 <!-- 
+	 	如果返回结果是集合，可以调用selectList方法，这个方法返回的结果就是一个集合，所以映射文件中应该配置成集合泛型的类型
+	 	${}拼接福：字符串原样拼接，如果传入的参数是基本类型(String, long, int, boolean, double, float等)，那么${}重的变量名称必须是value
+	 	注意：拼接符有sql注入的风险，所以慎重使用
+	  -->
+	 <select id="findUserByUserName" parameterType ="java.lang.String" resultType="pojo.User">
+	 	select * from user where username like ''%${value}%
+	 </select>
+</mapper>
