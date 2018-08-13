@@ -1,6 +1,7 @@
 package test;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -38,5 +39,27 @@ public class UserTest {
 		List<User> list = openSession.selectList("test.findUserByUserName", "%王%");
 		System.out.println(list);
 		openSession.close();
+	}
+	
+	
+	@Test
+	public void testInsertUser() throws Exception{
+		String resource = "SqlMapConfig.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+		SqlSession openSession = factory.openSession();
+		
+		User user = new User();
+		user.setId(6);
+		user.setUsername("Winston");
+		user.setBirthday(new Date());
+		user.setSex("男");
+		user.setAddress("深圳");
+		
+		openSession.insert("test.insertUser", user);
+		//提交事务(mybatis会自动开启事务，但是它不知道何时提交，所以需要手动设置)
+		openSession.commit();
+		
+		System.out.println("==="+user.getId());
 	}
 }
