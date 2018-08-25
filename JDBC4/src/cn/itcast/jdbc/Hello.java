@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.junit.Test;
+
+import cn.itcast.utils.JdbcUtils;
 
 public class Hello {
 	
@@ -19,7 +22,7 @@ public class Hello {
 		//注册驱动
 		Class.forName("com.mysql.jdbc.Driver");
 		//获取连接 ctrl+o 整理包
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "lu910208");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/day07", "root", "lu910208");
 		//编写sql
 		String sql = "select * from category";
 		//编写语句执行者
@@ -37,5 +40,40 @@ public class Hello {
 		rs.close();
 		st.close();
 		conn.close();
+	}
+	
+	@Test
+	public void f3() {
+		Connection conn = null;
+		ResultSet rs = null;
+		PreparedStatement st = null;
+		
+		try {
+			//获取连接
+			conn = JdbcUtils.getConnection();
+			//编写sql
+			String sql = "insert into category values(?,?)";
+			//获取语句执行者
+			st=conn.prepareStatement(sql);
+			//设置参数
+			st.setString(1, "c005");
+			st.setString(2, "户外");
+			//执行sql
+			int i = st.executeUpdate();
+			//处理结果
+			if(i==1) {
+				System.out.println("success");
+			}else {
+				System.out.println("fail");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JdbcUtils.closeResource(conn, st, rs);
+		}
 	}
 }
