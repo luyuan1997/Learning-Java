@@ -76,4 +76,61 @@ public class Hello {
 			JdbcUtils.closeResource(conn, st, rs);
 		}
 	}
+	
+	@Test
+	public void update() {
+		Connection conn = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "update category set cname= ? where cid= ?";
+			st=conn.prepareStatement(sql);
+			st.setString(1, "母婴");
+			st.setString(2, "c006");
+			
+			int i = st.executeUpdate();
+			
+			if(i==1) {
+				System.out.println("success");
+			}else {
+			 	System.out.println("fail");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JdbcUtils.closeResource(conn, st, rs);
+		}
+	}
+	
+	@Test
+	public void delete() {
+		Connection conn = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			conn=JdbcUtils.getConnection();
+			String sql = "delete from category where cid= ?";
+			st=conn.prepareStatement(sql);
+			st.setString(1, "c006");
+			int i = st.executeUpdate();
+			if(i==1) {
+				System.out.println("success");
+			}else {
+			 	System.out.println("fail");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JdbcUtils.closeResource(conn, st, rs);
+		}
+	}
 }
