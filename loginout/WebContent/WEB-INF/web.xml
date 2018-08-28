@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<!-- a.注册servlet 使用servlet标签
+	servlet-name:给servlet起个名字，全局唯一
+	servlet-class:存servlet的全限定名，复制过来即可
+	 -->
+	 <servlet>
+	 	<servlet-name>HelloServlet</servlet-name>
+	 	<servlet-class>com.itcast.hello.HelloServlet</servlet-class>
+	 </servlet>
+	 <servlet>
+	 	<servlet-name>RequestServlet</servlet-name>
+	 	<servlet-class>com.itcast.request.RequestServlet</servlet-class>
+	 </servlet>
+	 <!-- b.绑定路径 使用servlet-mapping标签
+	 		servlet-name:使用上面的名字即可
+	 		url-pattern:访问路径，必须以"/"开头，并且必须是全局唯一
+	  -->
+	  <servlet-mapping>
+	  	<servlet-name>HelloServlet</servlet-name>
+	  	<url-pattern>/hello</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>RequestServlet</servlet-name>
+	  	<url-pattern>/request</url-pattern>
+	  </servlet-mapping>
+</web-app>
