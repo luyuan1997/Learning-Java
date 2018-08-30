@@ -18,11 +18,12 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * 初始化登录次数
 	 */
-	public void init(ServletConfig config) throws ServletException {
+	public void init() throws ServletException {
 		//获取全局管理者
-		ServletContext context = getServletContext();
+		ServletContext context = this.getServletContext();
 		//初始化次数
 		context.setAttribute("count", 0);
+		System.out.println("完成初始化");
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -47,6 +48,15 @@ public class LoginServlet extends HttpServlet {
 			response.setHeader("refresh", "3;url=/firstproject2/index.html");
 		} else {
 			response.getWriter().print(user.getUsername() + ":欢迎回来");
+			
+			//获取全局管理者
+			ServletContext context = this.getServletContext();
+			//获取总此时
+			Integer newCount = (Integer) context.getAttribute("count");
+			//将次数+1
+			newCount++;
+			//将此书再次传入域对象中
+			context.setAttribute("count", newCount);
 		}
 	}
 }

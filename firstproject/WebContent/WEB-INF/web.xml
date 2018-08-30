@@ -9,4 +9,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PathServlet</display-name>
+    <servlet-name>PathServlet</servlet-name>
+    <servlet-class>com.itcast.path.PathServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PathServlet</servlet-name>
+    <url-pattern>/path</url-pattern>
+  </servlet-mapping>
 </web-app>
