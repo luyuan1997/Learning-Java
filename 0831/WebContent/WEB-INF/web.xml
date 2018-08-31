@@ -29,4 +29,14 @@
     <servlet-name>GetProductByIdServlet</servlet-name>
     <url-pattern>/getProductById</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ClearHistoryServlet</display-name>
+    <servlet-name>ClearHistoryServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.ClearHistoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClearHistoryServlet</servlet-name>
+    <url-pattern>/clearHistory</url-pattern>
+  </servlet-mapping>
 </web-app>

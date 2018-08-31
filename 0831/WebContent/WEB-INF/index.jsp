@@ -8,22 +8,6 @@
 </head>
 <body>
 
-	<%
-		//获取制定名称的cookie的ids
-		Cookie c =CookieUtils.getCookieByName("ids",request.getCookie());
-		//判断是否为空
-		if(c==null){
-	%>
-		<h2>暂无浏览记录</h2>
-	<%
-		}else{
-			String[] arr = c.getValue().split("-");
-			for(String id : arr){
-	%>
-	//图片的信息展示
-	<%
-			}
-		}		
-	%>
+	
 </body>
 </html>
