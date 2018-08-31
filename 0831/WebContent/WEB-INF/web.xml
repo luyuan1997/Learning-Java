@@ -19,4 +19,14 @@
     <servlet-name>RemServlet</servlet-name>
     <url-pattern>/rem</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetProductByIdServlet</display-name>
+    <servlet-name>GetProductByIdServlet</servlet-name>
+    <servlet-class>com.itcast.getproduct.GetProductByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetProductByIdServlet</servlet-name>
+    <url-pattern>/getProductById</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -32,6 +32,10 @@ public class RemServlet extends HttpServlet {
 		//将当前访问事件记录
 		//创建cookie,末尾加空格是为了转化为字符串
 		c = new Cookie("lastTime", new Date().getTime()+"");
+		//持久化cookie
+		c.setMaxAge(3600);
+		//设置路径
+		c.setPath(request.getContextPath()+"/");
 		//写回
 		response.addCookie(c);
 	}
