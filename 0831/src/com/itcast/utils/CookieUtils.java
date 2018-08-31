@@ -3,7 +3,7 @@ package com.itcast.utils;
 import javax.servlet.http.Cookie;
 
 public class CookieUtils {
-	private static Cookie getCookieByName(String name, Cookie[] cookies) {
+	public static Cookie getCookieByName(String name, Cookie[] cookies) {
 		if(cookies!=null) {
 			for(Cookie c:cookies) {
 				//通过名字获取
