@@ -39,4 +39,24 @@
     <servlet-name>ClearHistoryServlet</servlet-name>
     <url-pattern>/clearHistory</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Add2CartServlet</display-name>
+    <servlet-name>Add2CartServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.Add2CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Add2CartServlet</servlet-name>
+    <url-pattern>/add2Cart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ClearCartServlet</display-name>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.ClearCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <url-pattern>/clearCart</url-pattern>
+  </servlet-mapping>
 </web-app>
