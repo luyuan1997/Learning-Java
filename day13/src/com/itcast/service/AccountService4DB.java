@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.itcast.dao.AccountDao;
+import com.itcast.dao.AccountDao4DB;
 import com.itcast.dao.AccountDao4tl;
 import com.itcast.utils.DataSourceUtils;
 import com.itcast.utils.JdbcUtils;
 
-public class AccountService4tl {
+public class AccountService4DB {
 	/**
 	 *转账操作
 	 * @param fromUser 转出方
@@ -18,7 +19,7 @@ public class AccountService4tl {
 	 * @throws Exception
 	 */
 	public void account(String fromUser, String toUser, String money) throws Exception{
-		AccountDao4tl dao = new AccountDao4tl();
+		AccountDao4DB dao = new AccountDao4DB();
 		
 		try {
 			//开启事务
