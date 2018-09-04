@@ -19,4 +19,34 @@
     <servlet-name>FindAllServlet</servlet-name>
     <url-pattern>/findAll</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddProductServlet</display-name>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.AddProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/addProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetProductByIdServlet</display-name>
+    <servlet-name>GetProductByIdServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.GetProductByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetProductByIdServlet</servlet-name>
+    <url-pattern>/getProductById</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditProductServlet</display-name>
+    <servlet-name>EditProductServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.EditProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditProductServlet</servlet-name>
+    <url-pattern>/editProduct</url-pattern>
+  </servlet-mapping>
 </web-app>

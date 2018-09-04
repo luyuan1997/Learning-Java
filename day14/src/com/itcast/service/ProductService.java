@@ -15,5 +15,20 @@ public class ProductService {
 	public List<Product> findAll() throws SQLException {
 		return new ProductDao().findAll();
 	}
+	/**
+	 * 添加商品
+	 * @param p
+	 * @throws SQLException 
+	 */
+	public void addProduct(Product p) throws SQLException {
+		new ProductDao().addProduct(p);
+	}
+	public Product getProductById(String pid) throws SQLException {
+		
+		return new ProductDao().getProductById(pid);
+	}
+	public void updateProduct(Product p) throws SQLException {
+		new ProductDao().updateProductById(p);
+	}
 
 }

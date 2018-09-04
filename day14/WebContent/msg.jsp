@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2><a href="${pageContext.request.contextPath }/findAll">展示所有商品</a></h2>
-	<h2><a href="${pageContext.request.contextPath }/add.jsp">增加商品信息</a></h2>
+	${msg }
 </body>
 </html>
