@@ -1,40 +1,35 @@
 package com.itcast.web.servlet;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
-
-import com.itcast.domain.Product;
 import com.itcast.service.ProductService;
 
 /**
- * 修改商品
+ * 通过id删除商品s
  */
-public class EditProductServlet extends HttpServlet {
+public class DeleteProductByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//设置编码
-		request.setCharacterEncoding("utf-8");
-		//封装数据
-		Product p = new Product();
+		//获取商品Id
+		String pid = request.getParameter("pid");
+		//调用service完成商品删除
 		try {
-			BeanUtils.populate(p, request.getParameterMap());
-			//调用service完成更新
-			new ProductService().updateProduct(p);
-			//重定向FindAllServlet
-			response.sendRedirect(request.getContextPath()+"/findAll");
-		} catch (Exception e) {
+			new ProductService().deleteProductById(pid);
+		} catch (SQLException e) {
 			e.printStackTrace();
-			request.setAttribute("msg", "未能完成更新，出错了");
+			request.setAttribute("msg", "你没能把我删除掉哦，这是缘分");
 			request.getRequestDispatcher("/msg.jsp").forward(request, response);
+			return;
 		}
+		//重定向
+		response.sendRedirect(request.getContextPath()+"/findAll");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

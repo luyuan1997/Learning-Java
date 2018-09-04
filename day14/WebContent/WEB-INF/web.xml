@@ -49,4 +49,34 @@
     <servlet-name>EditProductServlet</servlet-name>
     <url-pattern>/editProduct</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProductByIdServlet</display-name>
+    <servlet-name>DeleteProductByIdServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.DeleteProductByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProductByIdServlet</servlet-name>
+    <url-pattern>/deleteProductById</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCheckedProductServlet</display-name>
+    <servlet-name>DeleteCheckedProductServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.DeleteCheckedProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCheckedProductServlet</servlet-name>
+    <url-pattern>/deleteCheckedProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindProductByConditionServlet</display-name>
+    <servlet-name>FindProductByConditionServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.FindProductByConditionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindProductByConditionServlet</servlet-name>
+    <url-pattern>/findProductByCondition</url-pattern>
+  </servlet-mapping>
 </web-app>

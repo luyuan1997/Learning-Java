@@ -35,9 +35,15 @@ public class ProductDao {
 
 	public void updateProductById(Product p) throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "update set pname = ?,market_price = ?,shop_price = ?,pdesc = ? where pid = ?";
+		String sql = "update product set pname = ?,market_price = ?,shop_price = ?,pdesc = ? where pid = ?";
 		qr.update(sql, p.getPname(),p.getMarket_price(),p.getShop_price(),
 				p.getPdesc(),p.getPid());
+	}
+
+	public void deleteProductById(String pid) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "delete from product where pid = ?";
+		qr.update(sql, pid);
 	}
 
 }
