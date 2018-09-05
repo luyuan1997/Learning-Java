@@ -2,39 +2,42 @@ package com.itcast.web.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itcast.domain.PageBean;
 import com.itcast.domain.Product;
 import com.itcast.service.ProductService;
 
 /**
- * 多条件查询
+ * 分页展示商品
  */
-public class FindProductByConditionServlet extends HttpServlet {
+public class ShowProductsByPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//设置编码
-		request.setCharacterEncoding("utf-8");
-		//接受参数
-		String name = request.getParameter("name");
-		String kw = request.getParameter("kw");
-		//调用service完成查询操作，返回值为List类型
-		List<Product> plist = null;
+		//设置代码
+		
+		//获取第几页
+		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		//获取每页显示的条数
+		int pageSize = 3;
+		
+		//调用service完成分页操作
+		PageBean<Product> bean = null;
 		try {
-			plist = new ProductService().findProductByCondition(name,kw);
+			bean = new ProductService().showProductsByPage(currentPage,pageSize);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//将查询结果list类型放入request域中，请求转发
-		request.setAttribute("list", plist);
-		request.getRequestDispatcher("/product_list.jsp").forward(request, response);
+		
+		//将pageBean放入request域中，请求转发
+		request.setAttribute("pb", bean);
+		request.getRequestDispatcher("/product_page.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

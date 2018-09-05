@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.itcast.dao.ProductDao;
+import com.itcast.domain.PageBean;
 import com.itcast.domain.Product;
 
 public class ProductService {
@@ -44,6 +45,24 @@ public class ProductService {
 			pDao.deleteProductById(pid);
 		}
 		
+	}
+	/**
+	 * 多条件查询
+	 * @param name 商品名称
+	 * @param kw 关键词
+	 * @return
+	 * @throws SQLException 
+	 */
+	public List<Product> findProductByCondition(String name, String kw) throws SQLException {
+		return new ProductDao().findProductByCondition(name,kw);
+	}
+	public PageBean<Product> showProductsByPage(int currentPage, int pageSize) throws SQLException {
+		//查询当前页数据
+		ProductDao dao = new ProductDao();
+		List<Product> list = dao.findProductByPage(currentPage,pageSize);
+		//查询总条数
+		int totalCount = dao.getCount();
+		return new PageBean<>(list, currentPage, pageSize, totalCount);
 	}
 
 }

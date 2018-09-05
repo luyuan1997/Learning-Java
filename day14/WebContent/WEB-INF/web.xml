@@ -79,4 +79,14 @@
     <servlet-name>FindProductByConditionServlet</servlet-name>
     <url-pattern>/findProductByCondition</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowProductsByPageServlet</display-name>
+    <servlet-name>ShowProductsByPageServlet</servlet-name>
+    <servlet-class>com.itcast.web.servlet.ShowProductsByPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProductsByPageServlet</servlet-name>
+    <url-pattern>/showProductsByPage</url-pattern>
+  </servlet-mapping>
 </web-app>

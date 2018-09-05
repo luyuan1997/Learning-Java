@@ -9,5 +9,6 @@
 <body>
 	<h2><a href="${pageContext.request.contextPath }/findAll">展示所有商品</a></h2>
 	<h2><a href="${pageContext.request.contextPath }/add.jsp">增加商品信息</a></h2>
+	<h2><a href="${pageContext.request.contextPath }/showProductsByPage?currentPage=1">分页展示商品</a></h2>
 </body>
 </html>
