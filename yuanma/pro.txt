@@ -1,0 +1,2 @@
+className = cn.yuanma.Student2
+methodName = show2
