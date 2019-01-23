@@ -1,23 +1,22 @@
 package p20190123;
 
 public class AccountingSync1 implements Runnable{
+	static AccountingSync1 instance = new AccountingSync1();
 	//共享资源(临界资源)
 	static int i = 0;
 	
-	//synchronized 修饰实例方法
-	public synchronized void increase() {
-		i++;
-	}
-	
 	@Override
 	public void run() {
-		for(int j = 0; j < 1000000; j++) {
-			increase();
+		//省略其他耗时操作....
+        //使用同步代码块对变量i进行同步操作,锁对象为instance
+		synchronized(instance) {
+			for(int j = 0; j < 1000000; j++) {
+				i++;
+			}
 		}
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
-		AccountingSync1 instance = new AccountingSync1();
 		Thread t1 = new Thread(instance);
 		Thread t2 = new Thread(instance);
 		t1.start();
