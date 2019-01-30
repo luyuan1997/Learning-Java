@@ -41,5 +41,4 @@ public class HttpHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
         if(null != cause) cause.printStackTrace();
         if(null != ctx) ctx.close();
     }
-
 }
